@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HNA Summary Flashcards</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .flashcard {
+      background: transparent;
+      width: 300px;
+      margin: 10px;
+      perspective: 1000px;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      min-height: 220px;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    .flashcard:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      min-height: 220px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-sizing: border-box;
+      padding: 15px;
+      background: #fff;
+      backface-visibility: hidden;
+      overflow-y: auto;
+    }
+    .card-back {
+      background: #fafafa;
+      transform: rotateY(180deg);
+    }
+    h2 {
+      font-size: 16px;
+      margin-top: 0;
+    }
+    p {
+      font-size: 14px;
+      margin: 5px 0;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>HNA Summary Flashcards</h1>
+  <div class="container">
+    <!-- Lecture 1: Artificial Deep Networks -->
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Artificial Deep Networks – Overview</h2>
+          <p>Deep Learning using neural networks</p>
+        </div>
+        <div class="card-back">
+          <p><strong>Overview:</strong> Uses neural networks as layered “brain cells” that process information and learn from experience. Tasks include image processing, game opponents, natural language processing, and simulation of biological systems.</p>
+          <p><em>Note:</em> Emphasizes learning from experience and building hierarchical representations.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Features &amp; Representations</h2>
+          <p>Defining features &amp; representations</p>
+        </div>
+        <div class="card-back">
+          <p><strong>Feature:</strong> An individual piece of data given to the computer.</p>
+          <p><strong>Representation:</strong> How these features are formatted or structured. For example, a color can be represented as the word “red” or as RGB values (255, 0, 0); or Cartesian coordinates can be changed to polar coordinates for performance gains.</p>
+          <p><em>Aim:</em> To choose the right features and represent them usefully so the model can learn effectively.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Feature Transformation &amp; Extraction</h2>
+          <p>Processing raw data</p>
+        </div>
+        <div class="card-back">
+          <p>Some features need processing or conversion before they are useful. Deep networks automatically transform raw data into meaningful representations. For example, in image recognition, early layers detect edges, mid layers detect shapes, and deeper layers recognize objects.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Layered Representations</h2>
+          <p>Building complexity</p>
+        </div>
+        <div class="card-back">
+          <p>Each layer in a deep network builds on the previous one. The model starts with simple patterns and gradually combines them into complex structures, which helps the network learn deep patterns in data.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Machine Learning Definition</h2>
+          <p>(Tom Mitchell, 1998)</p>
+        </div>
+        <div class="card-back">
+          <p>"A computer program is said to learn from experience (E) with respect to some class of tasks (T) and performance measure (P) if its performance at tasks in T, as measured by P, improves with experience E."</p>
+          <p>This defines learning as the improvement of performance with experience.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Deep Network &amp; Object Recognition</h2>
+          <p>Hierarchical extraction</p>
+        </div>
+        <div class="card-back">
+          <p>A deep network is a learning network that transforms or extracts features using multiple nonlinear processing units, arranged in multiple layers with hierarchical organization. In object recognition, early layers extract simple features like edges and contours; deeper layers combine these to recognize objects.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Filter/Convolve Operation</h2>
+          <p>Extracting features with kernels</p>
+        </div>
+        <div class="card-back">
+          <p>A small filter (kernel) slides over an input image to extract features (edges, textures, patterns). Steps include:</p>
+          <p>1. Use a preset filter (e.g., 3×3 matrix).</p>
+          <p>2. Convolve: Multiply corresponding values and sum them to get a new pixel value.</p>
+          <p>This creates a feature map. Filter values (weights) are learned automatically during training.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: FCN vs. CNN</h2>
+          <p>Comparing network types</p>
+        </div>
+        <div class="card-back">
+          <p><strong>CNNs:</strong> Respect spatial structure (ideal for images, audio, text).</p>
+          <p><strong>FCNs:</strong> Fully connected; every node connects to all nodes in the previous layer, making them inefficient for structured data.</p>
+          <p>Note: 1D CNNs work well for sequential data; 2D CNNs are best for images.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Threshold/Rectification Operation</h2>
+          <p>Introducing nonlinearity</p>
+        </div>
+        <div class="card-back">
+          <p>After filtering, the result passes through a non-linear activation function, typically ReLU (f(x) = max(0, x)). This function zeros out negative values, preventing the network from being merely a linear transformation.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Pooling Operation</h2>
+          <p>Downsampling feature maps</p>
+        </div>
+        <div class="card-back">
+          <p>Pooling downsamples the activation maps to reduce computational load. For example, max pooling takes the maximum value in a 2×2 region. This helps improve efficiency.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Normalization Operation</h2>
+          <p>Rescaling activations</p>
+        </div>
+        <div class="card-back">
+          <p>Normalization scales activation levels so that each feature map has a mean of zero and a standard deviation of one. This ensures similar contributions from all feature maps and speeds up training.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Practice Example</h2>
+          <p>Convolution in action</p>
+        </div>
+        <div class="card-back">
+          <p>Example: An input image of size 32×32×3 is convolved with a 5×5×3 filter resulting in a 28×28×1 activation map. Repeating the convolution with different filters builds a hierarchy of feature maps.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Shared Weights</h2>
+          <p>Consistency across locations</p>
+        </div>
+        <div class="card-back">
+          <p>The same filter (set of weights) is applied across different positions in the input image. This ensures that a useful feature detected in one location is also detected elsewhere, providing translation invariance.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Classification &amp; Softmax</h2>
+          <p>From features to predictions</p>
+        </div>
+        <div class="card-back">
+          <p>After several convolutional layers, the feature maps are flattened and fed into a fully-connected layer for classification. The softmax operation then converts the raw output scores into probabilities for each class. Note that even a small difference in raw scores can lead to a large difference in the resulting probabilities.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 1: Final Summary of Operations</h2>
+          <p>Key operations recap</p>
+        </div>
+        <div class="card-back">
+          <p>Key operations in deep networks include: Convolution, Thresholding (ReLU), Pooling, Normalization, a Fully-connected layer for classification, and Softmax activation to generate probabilities.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Lecture 2: Biological Neurons & Networks -->
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Biological Neurons &amp; Networks – Overview</h2>
+          <p>Biological basis of learning</p>
+        </div>
+        <div class="card-back">
+          <p>Biological neurons adjust the strength of synaptic connections based on experience – similar to weight adjustments in artificial neural networks. Hebb’s postulate (“cells that fire together, wire together”) is a central idea.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Ion Channels &amp; Na<sup>+</sup>/K<sup>+</sup> Pump</h2>
+          <p>Maintaining the membrane potential</p>
+        </div>
+        <div class="card-back">
+          <p>Ion channels allow the flow of ions across the neuron's membrane. Typically, there is a higher concentration of sodium (Na<sup>+</sup>) outside the cell and potassium (K<sup>+</sup>) inside. The Na<sup>+</sup>/K<sup>+</sup> pump actively maintains this imbalance.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Membrane Potential &amp; Activation</h2>
+          <p>Generating an action potential</p>
+        </div>
+        <div class="card-back">
+          <p>The imbalance of ions creates a voltage difference (membrane potential). When depolarization reaches a threshold (around –55mV), the neuron fires an action potential.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Opening the Ion Channel</h2>
+          <p>How channels open</p>
+        </div>
+        <div class="card-back">
+          <p>There are two ways ion channels open:</p>
+          <p>1. <strong>Active Opening:</strong> Neurotransmitters (e.g., Glu⁺ excites and GABA inhibits) bind to the channel, causing it to change shape and allow ions to flow.</p>
+          <p>2. <strong>Voltage-Gated:</strong> As the membrane voltage increases, the shape of the channel changes to let more ions pass (similar to an electronic transistor).</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: EPSPs &amp; Action Potentials</h2>
+          <p>Triggering the neural response</p>
+        </div>
+        <div class="card-back">
+          <p>EPSPs (excitatory postsynaptic potentials) depolarize the neuron. If several EPSPs occur close in time, they may collectively reach the threshold to trigger an action potential. The action potential has distinct phases: rising, falling, and an undershoot. IPSPs (inhibitory postsynaptic potentials) counteract EPSPs.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Neurotransmitter Release</h2>
+          <p>Passing the signal along</p>
+        </div>
+        <div class="card-back">
+          <p>An action potential causes voltage-gated Ca<sup>2+</sup> channels to open, which triggers the release of neurotransmitters stored in vesicles. These neurotransmitters then bind to receptors on the next neuron, propagating the signal.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Backpropagation &amp; Gradient Descent</h2>
+          <p>Learning in artificial networks</p>
+        </div>
+        <div class="card-back">
+          <p>In artificial neural networks, errors are propagated backward using the chain rule, and weights are updated via gradient descent to minimize the cost function. Biological neurons, however, learn through local, unsupervised processes.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Equivalent Structures</h2>
+          <p>Bio vs. Artificial parallels</p>
+        </div>
+        <div class="card-back">
+          <p>Comparisons include:</p>
+          <p>- Bio dendrite integration ≈ Convolution (filter operation)</p>
+          <p>- Bio threshold ≈ Rectification (ReLU)</p>
+          <p>- Normalization ≈ Surround suppression</p>
+          <p>- Distributed coding (multiple neurons represent an object) vs. exclusive coding (one neuron per object)</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 2: Input Feature Maps &amp; Cortical Maps</h2>
+          <p>Visual input processing</p>
+        </div>
+        <div class="card-back">
+          <p>Photoreceptors in the retina (cones for color, rods for low light) form the input image. In the visual cortex (V1), this image is transformed into a neuronal representation that preserves spatial relationships—with central vision (cones) being denser than peripheral vision (rods).</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Lecture 3: Feedforward Visual Processing -->
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Feedforward Visual Processing – Overview</h2>
+          <p>Processing visual information</p>
+        </div>
+        <div class="card-back">
+          <p>This section covers how visual information is processed from the retina through V1, emphasizing concepts such as eccentricity and receptive fields.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Eccentricity &amp; Receptive Fields</h2>
+          <p>Central vs. peripheral vision</p>
+        </div>
+        <div class="card-back">
+          <p><strong>Eccentricity:</strong> The distance of a point in the visual field from the center of gaze (fovea has low eccentricity; periphery, high).</p>
+          <p><strong>Receptive Fields:</strong> Their sizes increase as you move from central to peripheral vision.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Diversity in Receptive Field Sizes</h2>
+          <p>Different cell types</p>
+        </div>
+        <div class="card-back">
+          <p>At the same eccentricity, various ganglion cells (midget, parasol, etc.) have different receptive field sizes. Smaller fields capture fine details; larger fields capture broader patterns.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Spatial Frequency Processing</h2>
+          <p>Low vs. high frequencies</p>
+        </div>
+        <div class="card-back">
+          <p>Low spatial frequencies capture broad light/dark regions, whereas high spatial frequencies capture sharp edges and fine details. The combination of both is used to reconstruct the original image.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Bio vs. Artificial Networks</h2>
+          <p>Different approaches to filtering</p>
+        </div>
+        <div class="card-back">
+          <p>Biological vision processes information using multiple, varied receptive field sizes in parallel, while artificial networks typically apply fixed-size filters sequentially across layers.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Shared Weights &amp; Orientation Detection</h2>
+          <p>How orientation is processed</p>
+        </div>
+        <div class="card-back">
+          <p>In biological systems, weights vary locally, whereas in CNNs weights are shared. The primary visual cortex (V1) detects edge orientations via orientation columns, representing orientation as a continuous third dimension.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Neuronal Organization in V1</h2>
+          <p>Cortical columns &amp; hypercolumns</p>
+        </div>
+        <div class="card-back">
+          <p>Neurons in V1 are organized by spatial location and orientation preference, forming cortical columns. Hypercolumns (about 2×2 mm in size) contain all necessary feature maps (color, spatial frequency, orientation, motion) for one image location.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Visual Pathways Beyond V1</h2>
+          <p>Ventral and Dorsal streams</p>
+        </div>
+        <div class="card-back">
+          <p>There are two main pathways:</p>
+          <p><strong>Ventral (What Pathway):</strong> Responsible for object recognition. Damage can lead to visual agnosia.</p>
+          <p><strong>Dorsal (Where Pathway):</strong> Processes motion and spatial location. Damage can cause optic ataxia.</p>
+          <p>Approximately 30 visual field maps exist beyond V1; modern deep networks use skip connections to mimic this complex processing.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Hierarchical Spatial Integration</h2>
+          <p>From simple to abstract</p>
+        </div>
+        <div class="card-back">
+          <p>Early visual areas use small, localized receptive fields that gradually integrate into larger, more abstract representations in higher areas (e.g., from V1 to V4, IT). In the brain, this is reflected in the concept of a “connective field” (measured in mm of cortex) as opposed to the “receptive field” used in ANNs.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 3: Distributed Encoding &amp; Object-Selectivity</h2>
+          <p>Robust object representation</p>
+        </div>
+        <div class="card-back">
+          <p>Object identity is represented not by a single neuron but by a distributed pattern across many neurons. This method offers robustness against cell loss and allows efficient storage of new patterns, with neurons in areas like IT consistently responding to a wide range of objects.</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Lecture 4: Recurrent Visual Processing -->
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Recurrent Visual Processing – Overview</h2>
+          <p>Feedback and dynamic processing</p>
+        </div>
+        <div class="card-back">
+          <p>This section examines how biological visual processing uses feedforward, feedback, and lateral (recurrent) connections, unlike traditional artificial networks which are mostly feedforward.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Network Connections</h2>
+          <p>Types of connections</p>
+        </div>
+        <div class="card-back">
+          <p>Biological networks employ:</p>
+          <p>- <strong>Feedforward (Bottom-Up):</strong> Information flows from the retina to V1.</p>
+          <p>- <strong>Feedback (Top-Down):</strong> Higher visual areas send signals back to V1.</p>
+          <p>- <strong>Lateral:</strong> Neurons within the same layer interact via excitatory and inhibitory connections.</p>
+          <p>In contrast, most artificial networks have only feedforward connections (though recurrent networks now incorporate feedback and lateral elements).</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Recurrent Processing &amp; Dynamics</h2>
+          <p>Time-dependent interactions</p>
+        </div>
+        <div class="card-back">
+          <p>Recurrent activity creates oscillations (brain waves) and dynamic, non-fixed states. This recurrent processing is crucial for handling sequential or time-dependent data (e.g., videos or speech), as it allows the network to refine its understanding over multiple passes.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Digit Recognition &amp; BLT Networks</h2>
+          <p>Improving recognition under noise</p>
+        </div>
+        <div class="card-back">
+          <p>Deep feedforward networks perform well with light debris on digits but struggle with heavy debris. BLT (Bottom-Lateral-Top) networks reuse layers recurrently, which significantly improves accuracy with fewer parameters. For example, the Cornet-S network (a 4-layer recurrent network) performs comparably to deep feedforward networks with 100 layers.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Attractor/Hopfield Networks</h2>
+          <p>Memory retrieval &amp; error correction</p>
+        </div>
+        <div class="card-back">
+          <p>Attractor or Hopfield networks are a type of fully recurrent neural network that, via Hebbian learning, can retrieve complete patterns from partial inputs. This mechanism aids in error correction and achieves performance close to human ability on occluded images.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Predictive Coding in the Brain</h2>
+          <p>Using prediction to process input</p>
+        </div>
+        <div class="card-back">
+          <p>Higher brain areas generate predictions of expected sensory input. This prediction is sent back to lower areas:</p>
+          <p>- If the prediction matches the input, inhibition occurs (expected parts are suppressed).</p>
+          <p>- If not, a prediction error is generated and used to refine the model.</p>
+          <p>PredNets are unsupervised recurrent networks that implement predictive coding by minimizing prediction error and overall network activation.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flashcard">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Lecture 4: Blue Brain &amp; Neuromorphic Processors</h2>
+          <p>Mapping and simulating the brain</p>
+        </div>
+        <div class="card-back">
+          <p>The Blue Brain Project aims to map all neural connections (e.g., in a transgenic mouse brain). Neuromorphic processors are specialized hardware designed to run neural simulations, although the required computing power is still a challenge.</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <!-- Optional: JavaScript can be added here for additional interactivity if desired -->
+</body>
+</html>
